@@ -19,7 +19,7 @@ module.exports = {
       },
       animation: {
         'spin-reverse': 'spinReverse 0.8s linear infinite',
-        'float': 'float 6s ease-in-out infinite',
+        'float': 'float 15s ease-in-out infinite',
         'pulse-glow': 'pulseGlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
@@ -28,8 +28,9 @@ module.exports = {
           to: { transform: 'rotate(0deg)' },
         },
         float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' },
+          '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+          '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+          '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
         },
         pulseGlow: {
           '0%, 100%': { opacity: 0.4 },
