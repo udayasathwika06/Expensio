@@ -113,7 +113,7 @@ const Dashboard = () => {
         {/* Greeting */}
         <div>
           <h1 className="text-xl font-display font-semibold text-white">
-            Good day, <span className="text-primary">{user?.name || 'there'}</span> 👋
+            Good day, <span className="text-primary">{user?.user_metadata?.full_name || user?.user_metadata?.name || 'there'}</span> 👋
           </h1>
           <p className="text-sm text-gray-500 mt-0.5">Here's your financial overview for this month.</p>
         </div>
