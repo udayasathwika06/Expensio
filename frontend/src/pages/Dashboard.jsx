@@ -87,10 +87,8 @@ const Dashboard = () => {
       <nav className="navbar">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-              <FiTrendingUp className="text-white text-sm" />
-            </div>
-            <span className="font-display font-semibold text-white">Expensio</span>
+            <img src="/logo.png" alt="Expensio" className="w-8 h-8 rounded-lg object-cover shadow-[0_0_10px_rgba(109,40,217,0.4)]" />
+            <span className="font-display font-semibold text-white tracking-wide">Expensio</span>
             <span className="hidden sm:block text-gray-600 text-sm ml-1">/ Dashboard</span>
           </div>
           <div className="flex items-center gap-1.5">

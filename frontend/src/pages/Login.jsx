@@ -25,10 +25,8 @@ const Login = () => {
       {/* Left branding panel */}
       <div className="hidden lg:flex flex-col justify-between w-[420px] flex-shrink-0 bg-surface border-r border-white/[0.07] p-10">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 bg-primary rounded-xl flex items-center justify-center">
-            <FiTrendingUp className="text-white text-lg" />
-          </div>
-          <span className="font-display font-semibold text-white text-lg">Expensio</span>
+          <img src="/logo.png" alt="Expensio" className="w-10 h-10 rounded-xl object-cover shadow-[0_0_15px_rgba(109,40,217,0.5)]" />
+          <span className="font-display font-semibold text-white text-lg tracking-wide">Expensio</span>
         </div>
         <div>
           <p className="text-3xl font-display font-bold text-white leading-snug mb-3">
@@ -53,10 +51,8 @@ const Login = () => {
         <div className="w-full max-w-sm">
           {/* Mobile logo */}
           <div className="flex items-center gap-2 mb-8 lg:hidden">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <FiTrendingUp className="text-white" />
-            </div>
-            <span className="font-display font-semibold text-white">Expensio</span>
+            <img src="/logo.png" alt="Expensio" className="w-8 h-8 rounded-lg object-cover shadow-[0_0_10px_rgba(109,40,217,0.4)]" />
+            <span className="font-display font-semibold text-white tracking-wide">Expensio</span>
           </div>
 
           <div className="mb-8">
