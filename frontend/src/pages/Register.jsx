@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiUser, FiMail, FiLock, FiEye, FiEyeOff, FiTrendingUp } from 'react-icons/fi';
+import { FcGoogle } from 'react-icons/fc';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -9,7 +10,7 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { register } = useAuth();
+  const { register, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -136,7 +137,22 @@ const Register = () => {
             </button>
           </form>
 
-          <p className="mt-6 text-center text-sm text-gray-500">
+          <div className="mt-6 flex items-center justify-center gap-4">
+            <div className="h-px bg-white/10 flex-1"></div>
+            <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Or</span>
+            <div className="h-px bg-white/10 flex-1"></div>
+          </div>
+
+          <button
+            type="button"
+            onClick={loginWithGoogle}
+            className="w-full mt-6 py-3 px-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl flex items-center justify-center gap-3 transition-colors text-sm font-semibold text-white"
+          >
+            <FcGoogle className="text-xl" />
+            Continue with Google
+          </button>
+
+          <p className="mt-8 text-center text-sm text-gray-500">
             Already have an account?{' '}
             <Link to="/login" className="text-primary hover:text-purple-400 font-medium transition-colors">
               Sign in

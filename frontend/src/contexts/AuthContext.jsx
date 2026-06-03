@@ -82,11 +82,27 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const loginWithGoogle = async () => {
+    try {
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: window.location.origin
+        }
+      });
+      if (error) throw error;
+      // It redirects to google so we don't need to return success
+    } catch (error) {
+      toast.error(error.message || 'Google login failed');
+    }
+  };
+
   const value = {
     user,
     session,
     login,
     register,
+    loginWithGoogle,
     logout,
     loading,
     isAuthenticated: !!session
