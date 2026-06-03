@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: expense_user
+      POSTGRES_PASSWORD: secure_password_here
+      POSTGRES_DB: expense_tracker
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://expense_user:secure_password_here@db:5432/expense_tracker
+      - SECRET_KEY=c6a85f8e91d84f88ba03b9b4a4f89d34
+      - JWT_SECRET_KEY=e83a9f93c8a14b988f58b90a823b1c67
+      - FLASK_ENV=production
+    volumes:
+      - ./backend/uploads:/app/uploads
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

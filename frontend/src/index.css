@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-background text-gray-100;
+    font-family: 'Inter', sans-serif;
+    selection-color: white;
+    selection-background-color: #6d28d9;
+  }
+  ::selection {
+    background: rgba(109, 40, 217, 0.35);
+    color: white;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+@layer components {
+  /* Cards */
+  .card {
+    @apply bg-surface border border-white/[0.07] rounded-2xl shadow-sm;
+  }
+  .card-hover {
+    @apply card transition-all duration-200 hover:border-white/[0.14] hover:shadow-md;
+  }
+
+  /* Navbar */
+  .navbar {
+    @apply bg-background/80 backdrop-blur-lg border-b border-white/[0.07] sticky top-0 z-50;
+  }
+
+  /* Inputs */
+  .input {
+    @apply w-full bg-surface border border-white/10 rounded-xl text-white placeholder-gray-500
+           px-4 py-2.5 text-sm
+           focus:outline-none focus:ring-1 focus:ring-primary/60 focus:border-primary/60
+           transition-colors duration-150;
+  }
+  .input-icon {
+    @apply input pl-10;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm
+           transition-all duration-150 cursor-pointer select-none;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary/90 active:scale-[0.98] shadow-sm;
+  }
+  .btn-secondary {
+    @apply btn bg-surface border border-white/10 text-gray-200 hover:bg-white/[0.08] active:scale-[0.98];
+  }
+  .btn-danger {
+    @apply btn bg-red-500/10 border border-red-500/20 text-red-400 hover:bg-red-500/20 active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply btn text-gray-400 hover:text-white hover:bg-white/[0.06] active:scale-[0.98];
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-primary {
+    @apply badge bg-primary/15 text-purple-300 border border-primary/20;
+  }
+  .badge-success {
+    @apply badge bg-emerald-500/15 text-emerald-400 border border-emerald-500/20;
+  }
+  .badge-warn {
+    @apply badge bg-amber-500/15 text-amber-400 border border-amber-500/20;
+  }
+  .badge-danger {
+    @apply badge bg-red-500/15 text-red-400 border border-red-500/20;
+  }
+
+  /* Stat card */
+  .stat-card {
+    @apply card p-5 flex items-start gap-4;
+  }
+  .stat-icon {
+    @apply w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0;
+  }
+
+  /* Divider */
+  .divider {
+    @apply border-t border-white/[0.07];
+  }
+
+  /* Table */
+  .table-th {
+    @apply px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider;
+  }
+  .table-td {
+    @apply px-4 py-3.5 text-sm text-gray-200;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.14); }
+
+/* Chart tooltip */
+.recharts-tooltip-wrapper { outline: none !important; }

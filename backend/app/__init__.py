@@ -1,0 +1,21 @@
+from flask import Flask
+from flask_cors import CORS
+from flask_jwt_extended import JWTManager
+from .config import Config
+from .models import db
+
+def create_app():
+    app = Flask(__name__)
+    app.config.from_object(Config)
+    
+    CORS(app)
+    db.init_app(app)
+    
+    from .routes import expenses, upload
+    app.register_blueprint(expenses.bp)
+    app.register_blueprint(upload.bp)
+    
+    with app.app_context():
+        db.create_all()
+    
+    return app
