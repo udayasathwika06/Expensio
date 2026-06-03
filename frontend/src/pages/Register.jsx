@@ -22,9 +22,13 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex">
+    <div className="min-h-screen bg-background flex relative overflow-hidden">
+      {/* Animated Background Blobs */}
+      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary/20 rounded-full blur-[120px] mix-blend-screen animate-float pointer-events-none" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-secondary/20 rounded-full blur-[120px] mix-blend-screen animate-float pointer-events-none" style={{ animationDelay: '3s' }} />
+
       {/* Left branding */}
-      <div className="hidden lg:flex flex-col justify-between w-[420px] flex-shrink-0 bg-surface border-r border-white/[0.07] p-10">
+      <div className="hidden lg:flex flex-col justify-between w-[420px] flex-shrink-0 bg-surface/40 backdrop-blur-xl border-r border-white/[0.05] p-10 z-10">
         <div className="flex items-center gap-3">
           <img src="/logo.png" alt="Expensio" className="w-10 h-10 rounded-xl object-cover shadow-[0_0_15px_rgba(109,40,217,0.5)]" />
           <span className="font-display font-semibold text-white text-lg tracking-wide">Expensio</span>
@@ -48,7 +52,7 @@ const Register = () => {
       </div>
 
       {/* Right form */}
-      <div className="flex-1 flex items-center justify-center p-6">
+      <div className="flex-1 flex items-center justify-center p-6 z-10">
         <div className="w-full max-w-sm">
           <div className="flex items-center gap-2 mb-8 lg:hidden">
             <img src="/logo.png" alt="Expensio" className="w-8 h-8 rounded-lg object-cover shadow-[0_0_10px_rgba(109,40,217,0.4)]" />
